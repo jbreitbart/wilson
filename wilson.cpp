@@ -6,7 +6,7 @@
 
 #include <clang-c/Index.h>
 
-// convert CXString to std: :string
+// convert CXString to std::string
 static inline std::string cx_to_std(const CXString &x) {
 	auto temp = clang_getCString(x);
 	if (temp == nullptr) {
@@ -47,7 +47,7 @@ struct function {
 std::ostream &operator<<(std::ostream &stream, const function &f) {
 	stream << f.result << " " << f.name << "(";
 	for (const auto &p : f.parameters) {
-		stream << p << ",";
+		stream << p << ", ";
 	}
 	stream << ")";
 	return stream;
